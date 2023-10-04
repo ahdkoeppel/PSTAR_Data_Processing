@@ -9,14 +9,14 @@ close all;
 
 %% Import Data
 %FLIR Data
-FLIRDir = uigetdir('X:\common\FIELD_CAMPAIGNS\','Directory of raw FLIR .RJPGs');%gets directory
+FLIRDir = uigetdir('~','Directory of raw FLIR .RJPGs');%gets directory
 FLIRFiles = dir(fullfile(FLIRDir,'*.jpg')); %gets all files
 %DJI Vis Data
-DJIDir = uigetdir('X:\common\FIELD_CAMPAIGNS\WoodhouseMesa_Sept2022\UAV\VIS\','Directory of raw DJI .jpgs');
+DJIDir = uigetdir('~','Directory of raw DJI .jpgs');
 DJIFiles = dir(fullfile(DJIDir,'*.jpg'));
 fprintf(1, 'Now reading files from %s and %s\n', FLIRDir, DJIDir);
 %Logger Data
-[LoggerDataFile, Loggerfilepath] = uigetfile('X:\common\FIELD_CAMPAIGNS\WoodhouseMesa_Sept2022\GroundStation\Logger\','AllData Logger File');
+[LoggerDataFile, Loggerfilepath] = uigetfile('~','AllData Logger File');
 LoggerDataFile = fullfile(Loggerfilepath,LoggerDataFile);
 Data = struct2cell(load(LoggerDataFile));
 Data = Data{:,:};
